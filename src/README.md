@@ -6,6 +6,7 @@ Uma aplicação FastAPI super simples que permite aos estudantes visualizar e se
 
 - Visualizar todas as atividades extracurriculares disponíveis
 - Inscrever-se em atividades
+- Restringir inscrições e cancelamentos a professores autenticados
 
 ## Primeiros Passos
 
@@ -31,6 +32,16 @@ Uma aplicação FastAPI super simples que permite aos estudantes visualizar e se
 | ------ | ----------------------------------------------------------------- | ------------------------------------------------------------------- |
 | GET    | `/activities`                                                     | Obter todas as atividades com seus detalhes e contagem atual de participantes |
 | POST   | `/activities/{activity_name}/signup?email=student@mergington.edu` | Inscrever-se em uma atividade                                       |
+| DELETE | `/activities/{activity_name}/unregister?email=student@mergington.edu` | Cancelar a inscrição de um estudante                             |
+| POST   | `/admin/login`                                                    | Autenticar um professor                                            |
+| POST   | `/admin/logout`                                                   | Encerrar a sessão do professor                                     |
+| GET    | `/admin/session`                                                  | Consultar a sessão administrativa                                  |
+
+## Credenciais de demonstração
+
+Para o ambiente de desenvolvimento, use o usuário `teacher` e a senha
+`Mergington2026!`. As credenciais ficam em `teachers.json` como hash PBKDF2;
+não adicione senhas em texto puro ao arquivo.
 
 ## Modelo de Dados
 
